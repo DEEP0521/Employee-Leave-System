@@ -1,4 +1,4 @@
-package com.jkt.training.controller;
+package com.jkt.training.com.jkt.training.controller;
 
 public class LeaveController {
 

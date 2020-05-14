@@ -1,4 +1,4 @@
-package com.jkt.training.exception;
+package com.jkt.training.com.jkt.training.exception;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 

@@ -1,4 +1,4 @@
-package com.jkt.training.service;
+package com.jkt.training.com.jkt.training.service;
 
 public class ManagerService {
 
