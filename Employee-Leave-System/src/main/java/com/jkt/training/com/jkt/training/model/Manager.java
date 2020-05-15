@@ -1,5 +1,5 @@
-package com.jkt.training.model;
-
-public class Manager {
-
-}
+//package com.jkt.training.model;
+//
+//public class Manager {
+//
+//}
