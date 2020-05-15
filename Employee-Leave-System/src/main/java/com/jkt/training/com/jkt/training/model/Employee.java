@@ -10,6 +10,19 @@ public class Employee {
    private String EmpDept;
    private Date DateOfJoining;
    
+	public Employee()
+      {
+	   super();
+      }
+   
+   public Employee(int empId, String empName, String empDept, Date dateOfJoining) {
+	super();
+	EmpId = empId;
+	EmpName = empName;
+	EmpDept = empDept;
+	DateOfJoining = dateOfJoining;
+    }
+	
    public int getEmpId() {
 	return EmpId;
    }
