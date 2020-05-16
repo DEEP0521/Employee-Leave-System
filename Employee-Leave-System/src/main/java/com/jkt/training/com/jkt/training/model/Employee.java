@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-//package com.jkt.training.model;
-//
-//public class Employee {
-//
-//}
-=======
 package com.jkt.training.model;
 import java.sql.Date;
 import javax.persistence.Entity;
@@ -60,4 +53,3 @@ public String toString() {
 			+ DateOfJoining + "]";
 }
 }
->>>>>>> Employee

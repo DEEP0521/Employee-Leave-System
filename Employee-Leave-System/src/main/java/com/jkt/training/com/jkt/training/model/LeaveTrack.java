@@ -1,5 +1,6 @@
 package com.jkt.training.model;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +12,7 @@ public class LeaveTrack{
 	int lid;
 	int used,remaining;
 	String type;
+	
 	
 	public LeaveTrack() {}
 
