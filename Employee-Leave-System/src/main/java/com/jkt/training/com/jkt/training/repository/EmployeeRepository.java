@@ -1,11 +1,11 @@
-package com.jkt.training.com.jkt.training.repository;
+//package com.jkt.training.com.jkt.training.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+//import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.jkt.training.com.jkt.training.model.Employee;
+//import com.jkt.training.com.jkt.training.model.Employee;
 
 
 
-public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
+//public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
-}
+//}

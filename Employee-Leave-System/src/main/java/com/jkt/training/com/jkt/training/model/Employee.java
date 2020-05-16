@@ -1,5 +1,5 @@
-package com.jkt.training.com.jkt.training.model;
+//package com.jkt.training.com.jkt.training.model;
 
-public class Employee {
+//public class Employee {
 
-}
+//}
