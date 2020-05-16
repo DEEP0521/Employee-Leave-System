@@ -1,5 +1,6 @@
-package com.jkt.training.controller;
+//package com.jkt.training.com.jkt.training.controller;
 
+<<<<<<< HEAD
 import java.util.List;
 import java.util.Optional;
 
@@ -52,3 +53,8 @@ public class LeaveController {
 		return "Leave Deleted";
 	}
 }
+=======
+//public class LeaveController {
+
+//}
+>>>>>>> feature
