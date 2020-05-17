@@ -1,4 +1,4 @@
-package com.jkt.training.com.jkt.training.service;
+package com.jkt.training.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,14 +6,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jkt.training.com.jkt.training.model.Manager;
-import com.jkt.training.com.jkt.training.repository.ManagerRepository;
+import com.jkt.training.model.Manager;
+import com.jkt.training.repository.ManagerRepository;
 
 @Service
 public class ManagerService {
-<<<<<<< HEAD
-=======
-
 	@Autowired
 	private ManagerRepository manrepo;
 	
@@ -45,6 +42,4 @@ public class ManagerService {
 		manrepo.save(manager);
 	}
 	
-	
->>>>>>> feature
 }

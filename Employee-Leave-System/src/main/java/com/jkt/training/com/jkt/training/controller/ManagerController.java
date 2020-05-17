@@ -1,4 +1,4 @@
-package com.jkt.training.com.jkt.training.controller;
+package com.jkt.training.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jkt.training.com.jkt.training.model.Manager;
-import com.jkt.training.com.jkt.training.service.ManagerService;
+import com.jkt.training.model.Manager;
+import com.jkt.training.service.ManagerService;
 
 @RestController
 public class ManagerController {

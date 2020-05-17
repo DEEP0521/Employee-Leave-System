@@ -1,4 +1,4 @@
-package com.jkt.training.com.jkt.training.model;
+package com.jkt.training.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

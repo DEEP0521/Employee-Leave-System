@@ -1,13 +1,8 @@
-<<<<<<< HEAD
 package com.jkt.training.model;
 import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 @Entity
-=======
-package com.jkt.training.com.jkt.training.model;
-
->>>>>>> feature
 public class Employee {
   @Id
    private int EmpId;
