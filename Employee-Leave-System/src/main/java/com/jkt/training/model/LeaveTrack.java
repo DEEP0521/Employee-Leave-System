@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import com.jkt.training.model.Employee;
 
 @Entity
 public class LeaveTrack{
@@ -18,19 +19,15 @@ public class LeaveTrack{
 	
 	public LeaveTrack() {}
 
-	
-
-	public LeaveTrack(int lid, int used, int remaining, String type, String date_off, Employee employee) {
+	public LeaveTrack(int lid, int used, int remaining, String type, String date_off,int EmpId) {
 		super();
 		this.lid = lid;
 		this.used = used;
 		this.remaining = remaining;
 		this.type = type;
 		this.date_off = date_off;
-		this.employee = employee;
+		this.employee = new Employee(EmpId, "", "", "");
 	}
-
-
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -74,12 +71,12 @@ public class LeaveTrack{
 		this.date_off = date_off;
 	}
 
-	public Employee getEmployee() {
-		return employee;
-	}
-
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
-	}
+//	public Employee getEmployee() {
+//		return employee;
+//	}
+//
+//	public void setEmployee(Employee employee) {
+//		this.employee = employee;
+//	}
 	
 }

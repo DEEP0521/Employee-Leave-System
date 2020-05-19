@@ -4,16 +4,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Leave Check</title>
+<title>HOME</title>
 </head>
 <body>
-<div>
-<h1>Leave</h1>
-</div>
-<div>
-
-</div>
-<div>
-</div>
+<h3><a href="MANAGER.jsp">MANAGER</a></h3><br><br>
+<h3><a href="EMPLOYEE.jsp">EMPLOYEE</a></h3>
 </body>
 </html>

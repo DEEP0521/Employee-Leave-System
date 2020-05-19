@@ -31,6 +31,11 @@ public class LeaveController {
 		return service.getLeavesById(lid);
 	}
 	
+	@GetMapping("employees/{empId}/leaves")
+	public List<LeaveTrack> showEmployeeLeavesById(@PathVariable int empId){
+		return service.getEmployees(empId);
+	}
+	
 	@PostMapping(path= "/leaves",consumes = "application/json")
 	public String AddLeave(@RequestBody LeaveTrack leave) {
 		boolean b=service.addLeave(leave);

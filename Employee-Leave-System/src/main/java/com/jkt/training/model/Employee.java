@@ -3,28 +3,38 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 @Entity
-public class Employee {
-  private int EmpId;
-   private String EmpName;
-   private String EmpDept;
-   private String DateOfJoining;
-public Employee() {
+public class Employee 
+{
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int EmpId;
+	
+	private String EmpName,EmpDept;
+	private String DateOfJoining;
+	
+	public Employee() 
+	{ 
+		super();
+	}
+	
+	public Employee(int empId, String empName, String empDept, String dateOfJoining)
+	{
 	super();
-}
-public Employee(int EmpId, String EmpName, String EmpDept, String DateOfJoining) {
-	super();
-	this.EmpId = EmpId;
-	this.EmpName = EmpName;
-	this.EmpDept = EmpDept;
-	this.DateOfJoining = DateOfJoining;
-}
-public String getEmpName() {
-	return EmpName;
-}
-public void setEmpName(String EmpName) {
-	this.EmpName = EmpName;
-}
+	EmpId = empId;
+	EmpName = empName;
+	EmpDept = empDept;
+	DateOfJoining = dateOfJoining;
+	}
+	public String getEmpName() 
+	{
+		return EmpName;
+	}
+	public void setEmpName(String EmpName) 
+	{
+		this.EmpName = EmpName;
+	}
 public String getEmpDept() {
 	return EmpDept;
 }
@@ -37,8 +47,6 @@ public String getDateOfJoining() {
 public void setDateOfJoining(String DateOfJoining) {
 	this.DateOfJoining = DateOfJoining;
 }
-@Id
-@GeneratedValue(strategy=GenerationType.AUTO)
 public int getEmpId() {
 	return EmpId;
 }

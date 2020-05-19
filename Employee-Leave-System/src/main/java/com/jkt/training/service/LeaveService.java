@@ -1,5 +1,6 @@
 package com.jkt.training.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,6 +13,7 @@ import com.jkt.training.repository.LeaveRepository;
 
 @Service
 public class LeaveService {
+	
 	@Autowired
 	private LeaveRepository repository;
 
@@ -30,6 +32,17 @@ public class LeaveService {
 			return  repository.findById(lid);
 	}
 	
+	public List<LeaveTrack> getEmployees(int empId)
+	{
+		List<LeaveTrack> leave=new ArrayList<LeaveTrack>();
+		if(leave.size()==0)
+		{
+			repository.findByEmployeeEmpId(empId).forEach(leave::add);
+			return leave;
+		}
+		else
+			throw new NotFoundfException("Id not found for deletion!");
+	}
 	public boolean addLeave(LeaveTrack leave) {
 		int check=leave.getLid();
 		if(repository.existsById(check)==false)
