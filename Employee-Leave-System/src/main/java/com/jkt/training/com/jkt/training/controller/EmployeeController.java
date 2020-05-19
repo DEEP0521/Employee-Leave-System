@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jkt.training.com.jkt.training.model.Employee;
+import com.jkt.training.com.jkt.training.model.Manager;
 import com.jkt.training.com.jkt.training.service.EmployeeService;
 
 @RestController
@@ -26,10 +27,27 @@ public class EmployeeController {
 		System.out.println(employee.toString());
 		return "New Employee Added";
 	}
+	
+	//mapping
+	@PostMapping("/managers/{mId}/employees")
+	public String addmanager(@RequestBody Employee employee,@PathVariable int mId)
+	{
+		employee.setManager(new Manager(mId,"",""));
+		empser.addMan(employee);
+		return "manager added";
+	}
+	
 	@GetMapping("/employees")
 	public List<Employee> getAllEmployees()
 	{
 		return empser.getAllEmployees();
+	}
+	
+	//mapping
+	@GetMapping("/manager/{mid}/employees")
+	public List<Employee> getAllEmployee(@PathVariable int mid)
+	{
+		return empser.getAllEmployByManagerId(mid);
 	}
 	
 	@GetMapping("/employees/{EmpId}")
@@ -45,8 +63,26 @@ public class EmployeeController {
 		empser.updateEmp(emp, EmpId);
 		return "Employee Updated";
 	}
+	
+	//mapping
+	@PutMapping(path="/managers/{mid}/employees/{EmpId}",consumes="application/json")
+	public String updateEmploy(@RequestBody Employee emp,@PathVariable int mid ,@PathVariable int EmpId)
+	{
+		emp.setManager(new Manager(mid,"",""));
+		empser.updateEmpl(emp, EmpId);;
+		return "Employee Updated";
+	}
+	
 	@DeleteMapping("/employees/{EmpId}")
 	public String deleteEmp(@PathVariable int EmpId)
+	{
+		empser.deleteEmp(EmpId);
+		return "Employee deleted";
+	}
+	
+	//mapping
+	@DeleteMapping("/managers/{mid}/employees/{EmpId}")
+	public String deleteEmpl(@PathVariable int EmpId)
 	{
 		empser.deleteEmp(EmpId);
 		return "Employee deleted";

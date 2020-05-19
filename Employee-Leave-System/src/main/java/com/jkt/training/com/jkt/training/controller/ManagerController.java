@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jkt.training.com.jkt.training.model.Employee;
 import com.jkt.training.com.jkt.training.model.Manager;
 import com.jkt.training.com.jkt.training.service.ManagerService;
+
 
 
 
@@ -31,18 +31,14 @@ public class ManagerController {
 		return "Manager added";	
 				}
 	
+	
 	@GetMapping("/managers")
 	public List<Manager> getAllManager()
 	{
 		return manservice.getAllManager();
 	}
 	
-	//mapping with hospital
-			@GetMapping("employee/{EmpId}/managers")
-			public List<Manager> getAllManagerByEmpId(@PathVariable int EmpId)
-			{
-				return manservice.getAllManager(EmpId);
-			}
+	
 	
 	@GetMapping("/managers/{manager_Id}")
 	public Optional<Manager> getManagerById( @PathVariable int manager_Id)
@@ -50,12 +46,7 @@ public class ManagerController {
 		return manservice.getManById(manager_Id);
 	}
 	
-	//mapping
-	@GetMapping("managers/{manager_Id}/Employee/{EmpId}")
-	public Optional<Manager> getManagerByEId( @PathVariable int EmpId)
-	{
-		return manservice.getManagerByEid(EmpId);
-	}
+	
 	
 	@DeleteMapping("/managers/{manager_Id}")
 	public String deleteManager(@PathVariable int manager_Id)
@@ -64,13 +55,7 @@ public class ManagerController {
 		return "Manager Deleted";
 	}
 	
-	//mapping
-	@DeleteMapping("/Employee/{EmpId}/managers/{manager_Id}")
-	public String deleteEmployee(@PathVariable int manager_Id)
-	{
-		manservice.deleteMan(manager_Id);
-		return "Manager Deleted";
-	}
+	
 	
 	@PutMapping("/managers/{manager_Id}")
 	public String updateManager(@RequestBody Manager manager,@PathVariable int manager_Id)
@@ -78,12 +63,5 @@ public class ManagerController {
 		manservice.updateMan(manager, manager_Id);
 		return "Manager Updated";
 	}
-	//mapping
-	@PutMapping(path = "/Employee/{EmpId}/managers/{manager_Id}",consumes = "application/json")
-	public String updateEmp_Record(@RequestBody Manager manager,@PathVariable int EmpId,@PathVariable int manager_Id) {
-		
-		manager.setEmployee((List<Employee>) new Employee(EmpId,"","",""));
-		manservice.updateEmpl(manager);
-		return "updated record";
-	}
+	
 }

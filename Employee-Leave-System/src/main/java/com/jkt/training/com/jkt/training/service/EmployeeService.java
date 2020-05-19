@@ -1,4 +1,5 @@
 package com.jkt.training.com.jkt.training.service;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,9 +18,22 @@ public class EmployeeService {
 		emprepo.save(employee);
 	}
 	
+	//mapping
+	public void addMan(Employee employee)
+	{
+		emprepo.save(employee);
+	}
 	public List<Employee> getAllEmployees()
 	{
 		return emprepo.findAll();
+	}
+	
+	//mapping
+	public List<Employee> getAllEmployByManagerId(int id)
+	{
+		List<Employee> employee=new ArrayList<>();
+		emprepo.findByManagerId(id).forEach(employee::add);
+		return employee;
 	}
 	//emp by id
 	public Optional<Employee> getEmpbyId(int EmpId)
@@ -39,7 +53,24 @@ public class EmployeeService {
 	
 	}
 	
+	//mapping
+	public void updateEmpl(Employee emp,int EmpId)
+	{
+	
+		if(emprepo.existsById(EmpId))
+			emprepo.save(emp);
+	
+	}
+	
+	
 	public void deleteEmp(int EmpId)
+	{
+		Employee emp=emprepo.getOne(EmpId);
+		emprepo.delete(emp);
+	}
+	
+	//mapping
+	public void deleteEmployee(int EmpId)
 	{
 		Employee emp=emprepo.getOne(EmpId);
 		emprepo.delete(emp);

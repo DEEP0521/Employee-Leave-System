@@ -1,56 +1,87 @@
 package com.jkt.training.com.jkt.training.model;
 
-import java.sql.Date;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 @Entity
 public class Employee {
   @Id
-   private int EmpId;
-   private String EmpName;
-   private String EmpDept;
-   private String DateOfJoining;
+   private int id;
+   private String empName;
+   private String empDept;
+   private String dateOfJoining;
+   
+   @ManyToOne
+   private Manager manager;
    
 	public Employee()
       {
 	   super();
       }
-   
-   public Employee(int empId, String empName, String empDept, String dateOfJoining) {
-	super();
-	EmpId = empId;
-	EmpName = empName;
-	EmpDept = empDept;
-	DateOfJoining = dateOfJoining;
-    }
+
+	public Employee(int id, String empName, String empDept, String dateOfJoining) {
+		super();
+		this.id = id;
+		this.empName = empName;
+		this.empDept = empDept;
+		this.dateOfJoining = dateOfJoining;
+	}
 	
-   public int getEmpId() {
-	return EmpId;
-   }
-   public void setEmpId(int empId) {
-	EmpId = empId;
-   }
-   public String getEmpName() {
-	return EmpName;
-   }
-   public void setEmpName(String empName) {
-	EmpName = empName;
-   }
-   public String getEmpDept() {
-	return EmpDept;
-   }
-   public void setEmpDept(String empDept) {
-	EmpDept = empDept;
-   }
-   public String getDateOfJoining() {
-	return DateOfJoining;
-   }
-   public void setDateOfJoining(String dateOfJoining) {
-	DateOfJoining = dateOfJoining;
-   }
-@Override
-public String toString() {
-	return "Employee [EmpId=" + EmpId + ", EmpName=" + EmpName + ", EmpDept=" + EmpDept + ", DateOfJoining="
-			+ DateOfJoining + "]";
-}
+	
+
+	public Employee(int id, String empName, String empDept, String dateOfJoining, int  manager_Id) {
+		super();
+		this.id = id;
+		this.empName = empName;
+		this.empDept = empDept;
+		this.dateOfJoining = dateOfJoining;
+		this.manager =new Manager(manager_Id,"","");
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getEmpName() {
+		return empName;
+	}
+
+	public void setEmpName(String empName) {
+		this.empName = empName;
+	}
+
+	public String getEmpDept() {
+		return empDept;
+	}
+
+	public void setEmpDept(String empDept) {
+		this.empDept = empDept;
+	}
+
+	public String getDateOfJoining() {
+		return dateOfJoining;
+	}
+
+	public void setDateOfJoining(String dateOfJoining) {
+		this.dateOfJoining = dateOfJoining;
+	}
+
+	public Manager getManager() {
+		return manager;
+	}
+
+	public void setManager(Manager manager) {
+		this.manager = manager;
+	}
+	
+	
+	
+   
+   
 }
