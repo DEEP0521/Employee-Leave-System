@@ -3,7 +3,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 @Entity
+<<<<<<< HEAD:Employee-Leave-System/src/main/java/com/jkt/training/model/Employee.java
 public class Employee {
 
 	@Id
@@ -30,6 +32,38 @@ public String getEmpName() {
 public void setEmpName(String EmpName) {
 	this.EmpName = EmpName;
 }
+=======
+public class Employee 
+{
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int EmpId;
+	
+	private String EmpName,EmpDept;
+	private String DateOfJoining;
+	
+	public Employee() 
+	{ 
+		super();
+	}
+	
+	public Employee(int empId, String empName, String empDept, String dateOfJoining)
+	{
+	super();
+	EmpId = empId;
+	EmpName = empName;
+	EmpDept = empDept;
+	DateOfJoining = dateOfJoining;
+	}
+	public String getEmpName() 
+	{
+		return EmpName;
+	}
+	public void setEmpName(String EmpName) 
+	{
+		this.EmpName = EmpName;
+	}
+>>>>>>> b65eadecf86edb634a277f6d120101b040ae8fc4:Employee-Leave-System/src/main/java/com/jkt/training/com/jkt/training/model/Employee.java
 public String getEmpDept() {
 	return EmpDept;
 }
@@ -42,7 +76,10 @@ public String getDateOfJoining() {
 public void setDateOfJoining(String DateOfJoining) {
 	this.DateOfJoining = DateOfJoining;
 }
+<<<<<<< HEAD:Employee-Leave-System/src/main/java/com/jkt/training/model/Employee.java
 
+=======
+>>>>>>> b65eadecf86edb634a277f6d120101b040ae8fc4:Employee-Leave-System/src/main/java/com/jkt/training/com/jkt/training/model/Employee.java
 public int getEmpId() {
 	return id;
 }

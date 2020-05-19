@@ -12,8 +12,13 @@ import com.jkt.training.model.LeaveTrack;
 import com.jkt.training.repository.LeaveRepository;
 
 @Service
+<<<<<<< HEAD:Employee-Leave-System/src/main/java/com/jkt/training/service/LeaveService.java
 public class LeaveService 
 {
+=======
+public class LeaveService {
+	
+>>>>>>> b65eadecf86edb634a277f6d120101b040ae8fc4:Employee-Leave-System/src/main/java/com/jkt/training/com/jkt/training/service/LeaveService.java
 	@Autowired
 	private LeaveRepository repository;
 
@@ -44,6 +49,17 @@ public class LeaveService
 			return  repository.findById(lid);
 	}
 	
+	public List<LeaveTrack> getEmployees(int empId)
+	{
+		List<LeaveTrack> leave=new ArrayList<LeaveTrack>();
+		if(leave.size()==0)
+		{
+			repository.findByEmployeeEmpId(empId).forEach(leave::add);
+			return leave;
+		}
+		else
+			throw new NotFoundfException("Id not found for deletion!");
+	}
 	public boolean addLeave(LeaveTrack leave) {
 		int check=leave.getLid();
 		if(repository.existsById(check)==false)
