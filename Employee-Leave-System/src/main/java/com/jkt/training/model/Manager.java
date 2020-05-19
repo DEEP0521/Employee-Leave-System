@@ -7,7 +7,7 @@ import javax.persistence.Id;
 public class Manager {
 	
 	@Id
-	private int manager_Id;
+	private int id;
 	private String manager_Name;
 	private String manager_Project;
 	
@@ -16,19 +16,19 @@ public class Manager {
 	
 	}
 
-	public Manager(int manager_Id, String manager_Name, String manager_Project) {
+	public Manager(int id, String manager_Name, String manager_Project) {
 		super();
-		this.manager_Id = manager_Id;
+		this.id = id;
 		this.manager_Name = manager_Name;
 		this.manager_Project = manager_Project;
 	}
 
 	public int getManager_Id() {
-		return manager_Id;
+		return id;
 	}
 
-	public void setManager_Id(int manager_Id) {
-		this.manager_Id = manager_Id;
+	public void setManager_Id(int id) {
+		this.id = id;
 	}
 
 	public String getManager_Name() {

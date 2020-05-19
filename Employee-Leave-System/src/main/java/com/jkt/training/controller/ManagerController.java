@@ -26,7 +26,7 @@ public class ManagerController {
 	{
 		manservice.AddManager(manager);
 		return "Manager added";	
-				}
+	}
 	
 	@GetMapping("/managers")
 	public List<Manager> getAllManager()
