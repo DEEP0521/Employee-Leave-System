@@ -5,16 +5,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 @Entity
 public class Employee {
-  private int EmpId;
-   private String EmpName;
-   private String EmpDept;
-   private String DateOfJoining;
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
+	
+	private String EmpName;
+	private String EmpDept;
+	private String DateOfJoining;
+   
 public Employee() {
 	super();
 }
-public Employee(int EmpId, String EmpName, String EmpDept, String DateOfJoining) {
+public Employee(int id, String EmpName, String EmpDept, String DateOfJoining) {
 	super();
-	this.EmpId = EmpId;
+	this.id = id;
 	this.EmpName = EmpName;
 	this.EmpDept = EmpDept;
 	this.DateOfJoining = DateOfJoining;
@@ -37,17 +42,16 @@ public String getDateOfJoining() {
 public void setDateOfJoining(String DateOfJoining) {
 	this.DateOfJoining = DateOfJoining;
 }
-@Id
-@GeneratedValue(strategy=GenerationType.AUTO)
+
 public int getEmpId() {
-	return EmpId;
+	return id;
 }
-public void setEmpId(int empId) {
-	EmpId = empId;
+public void setEmpId(int id) {
+	this.id = id;
 }
 @Override
 public String toString() {
-	return "Employee [EmpId=" + EmpId + ", EmpName=" + EmpName + ", EmpDept=" + EmpDept + ", DateOfJoining="
+	return "Employee [EmpId=" + id + ", EmpName=" + EmpName + ", EmpDept=" + EmpDept + ", DateOfJoining="
 			+ DateOfJoining + "]";
 }
    	

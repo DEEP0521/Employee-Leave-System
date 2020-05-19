@@ -9,31 +9,40 @@ import javax.persistence.ManyToOne;
 @Entity
 public class LeaveTrack{
 
-	int lid;
-	int used,remaining;
-	String type,date_off;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int lid;
+	
+	private int used,remaining;
+	private String type,date_off;
 	
 	@ManyToOne
 	private Employee employee;
 	
-	public LeaveTrack() {}
+	public LeaveTrack() {
+		super();
+	}
 
-	
-
-	public LeaveTrack(int lid, int used, int remaining, String type, String date_off, Employee employee) {
+	public LeaveTrack(int lid, int used, int remaining, String type, String date_off, int id) {
 		super();
 		this.lid = lid;
 		this.used = used;
 		this.remaining = remaining;
 		this.type = type;
 		this.date_off = date_off;
-		this.employee = employee;
+		this.employee = new Employee(id,"","","");
+	}
+	
+	public LeaveTrack(int lid, int used, int remaining, String type, String date_off) {
+		super();
+		this.lid = lid;
+		this.used = used;
+		this.remaining = remaining;
+		this.type = type;
+		this.date_off = date_off;
 	}
 
-
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	
 	public int getLid() {
 		return lid;
 	}
@@ -81,5 +90,10 @@ public class LeaveTrack{
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "LeaveTrack [lid=" + lid + ", used=" + used + ", remaining=" + remaining + ", type=" + type
+				+ ", date_off=" + date_off + ", employee=" + employee + "]";
+	}
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jkt.training.model.Employee;
 import com.jkt.training.model.LeaveTrack;
 import com.jkt.training.service.LeaveService;
 
@@ -31,8 +32,28 @@ public class LeaveController {
 		return service.getLeavesById(lid);
 	}
 	
+	@GetMapping("/employees/{id}/leaves")
+	public List<LeaveTrack> showLeavesByEmployee(@PathVariable int id){
+		return service.getLeavesByEmployeeId(id);
+	}
+	
+	@GetMapping("/employees/{id}/leaves/{lid}")
+	public Optional<LeaveTrack> showEmployeeLeavesById(@PathVariable int lid){
+		return service.getLeavesById(lid);
+	}
+	
 	@PostMapping(path= "/leaves",consumes = "application/json")
 	public String AddLeave(@RequestBody LeaveTrack leave) {
+		boolean b=service.addLeave(leave);
+		if(b==true)
+			return "Leave Request Successful";
+		else
+			return "Leave Request Unsucessful";
+	}
+	
+	@PostMapping(path= "/employees/{id}/leaves",consumes = "application/json")
+	public String AddEmployeeLeave(@PathVariable int id,@RequestBody LeaveTrack leave) {
+		leave.setEmployee(new Employee(id, "", "", ""));
 		boolean b=service.addLeave(leave);
 		if(b==true)
 			return "Leave Request Successful";
@@ -46,8 +67,21 @@ public class LeaveController {
 		return "Leave updated";
 	}
 	
+	@PutMapping(path = "/employees/{id}/leaves/{lid}",consumes = "application/json")
+	public String UpdateEmployeeLeave(@RequestBody LeaveTrack leave,@PathVariable int id,@PathVariable int lid) {
+		leave.setEmployee(new Employee(id, "", "", ""));
+		service.updateEmployeeLeave(leave, id, lid);
+		return "Leave updated";
+	}
+	
 	@DeleteMapping(path = "/leaves/{lid}")
 	public String DeleteLeave(@PathVariable int lid) {
+		service.deleteLeave(lid);
+		return "Leave Deleted";
+	}
+	
+	@DeleteMapping(path = "/employees/{id}/leaves/{lid}")
+	public String DeleteEmployeeLeave(@PathVariable int lid) {
 		service.deleteLeave(lid);
 		return "Leave Deleted";
 	}

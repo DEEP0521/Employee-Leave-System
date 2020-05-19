@@ -1,3 +1,4 @@
+package com.jkt.training;
 //package com.jkt.training.com.jkt.training;
 
 //import org.springframework.boot.builder.SpringApplicationBuilder;

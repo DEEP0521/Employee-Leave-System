@@ -1,5 +1,6 @@
 package com.jkt.training.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,7 +12,8 @@ import com.jkt.training.model.LeaveTrack;
 import com.jkt.training.repository.LeaveRepository;
 
 @Service
-public class LeaveService {
+public class LeaveService 
+{
 	@Autowired
 	private LeaveRepository repository;
 
@@ -20,6 +22,18 @@ public class LeaveService {
 			throw new NotFoundfException("Leave Record Not Found!");
 		else
 			return  repository.findAll();
+	}
+	
+	//mapping with employee
+	public List<LeaveTrack> getLeavesByEmployeeId(int lid){
+		List<LeaveTrack> leaves=new ArrayList<LeaveTrack>();
+		if(leaves.size()==0)
+		{
+			repository.findByEmployeeId(lid).forEach(leaves::add);
+			return leaves;
+		}
+		else
+			throw new NotFoundfException("Leave Record Not Found!");
 	}
 	
 	public Optional<LeaveTrack> getLeavesById(int lid){
@@ -56,6 +70,20 @@ public class LeaveService {
 	}
 	
 	public void updateLeave(LeaveTrack leave,int lid) {
+		if(repository.existsById(lid))
+		{
+			String lid1=String.valueOf(leave.getLid());
+			if(leave.getLid()!=-1&&leave.getRemaining()!=-1&&leave.getUsed()!=-1
+					&&!leave.getType().equals(null)&&!lid1.equals(null))
+				repository.save(leave);
+			else
+				throw new NotFoundfException("Id not found for deletion!");
+		}
+		else
+			throw new NotFoundfException("Id not found for deletion!");
+	}
+	
+	public void updateEmployeeLeave(LeaveTrack leave,int id,int lid) {
 		if(repository.existsById(lid))
 		{
 			String lid1=String.valueOf(leave.getLid());

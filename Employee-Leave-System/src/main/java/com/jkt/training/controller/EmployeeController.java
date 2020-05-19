@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jkt.training.com.jkt.training.model.Employee;
-import com.jkt.training.com.jkt.training.service.EmployeeService;
+import com.jkt.training.model.Employee;
+import com.jkt.training.service.EmployeeService;
 
 @RestController
 public class EmployeeController {
