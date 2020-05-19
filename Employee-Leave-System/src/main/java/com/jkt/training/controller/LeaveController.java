@@ -32,7 +32,6 @@ public class LeaveController {
 		return service.getLeavesById(lid);
 	}
 	
-<<<<<<< HEAD:Employee-Leave-System/src/main/java/com/jkt/training/controller/LeaveController.java
 	@GetMapping("/employees/{id}/leaves")
 	public List<LeaveTrack> showLeavesByEmployee(@PathVariable int id){
 		return service.getLeavesByEmployeeId(id);
@@ -41,11 +40,6 @@ public class LeaveController {
 	@GetMapping("/employees/{id}/leaves/{lid}")
 	public Optional<LeaveTrack> showEmployeeLeavesById(@PathVariable int lid){
 		return service.getLeavesById(lid);
-=======
-	@GetMapping("employees/{empId}/leaves")
-	public List<LeaveTrack> showEmployeeLeavesById(@PathVariable int empId){
-		return service.getEmployees(empId);
->>>>>>> b65eadecf86edb634a277f6d120101b040ae8fc4:Employee-Leave-System/src/main/java/com/jkt/training/com/jkt/training/controller/LeaveController.java
 	}
 	
 	@PostMapping(path= "/leaves",consumes = "application/json")
