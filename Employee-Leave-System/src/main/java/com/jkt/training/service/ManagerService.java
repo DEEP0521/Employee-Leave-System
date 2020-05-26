@@ -14,9 +14,17 @@ public class ManagerService {
 	@Autowired
 	private ManagerRepository manrepo;
 	
-	public void AddManager(Manager manager)
+	public boolean AddManager(Manager manager)
 	{
-		 manrepo.save(manager);
+		int check=manager.getManager_Id();
+		if(manrepo.existsById(check)==false)
+		{
+			manrepo.save(manager);
+			return true;
+		}
+		else
+			return false;
+		 
 	}
 	
 	public List<Manager> getAllManager()

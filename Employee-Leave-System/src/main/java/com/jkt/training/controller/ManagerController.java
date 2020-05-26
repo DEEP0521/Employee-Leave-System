@@ -24,9 +24,12 @@ public class ManagerController {
 	@PostMapping(path="/managers",consumes="application/json")
 	public String addmanager(@RequestBody Manager manager)
 	{
-		manservice.AddManager(manager);
-		return "Manager added";	
-				}
+		boolean b=manservice.AddManager(manager);
+		if (b==true)
+			return "Manager added";
+		else
+			return "Manager Not added";	
+	}
 	
 	@GetMapping("/managers")
 	public List<Manager> getAllManager()

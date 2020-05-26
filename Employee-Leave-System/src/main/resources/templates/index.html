@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<button type="button" onclick="showManager()">MANAGER</button>
+<div id="managerList"></div>
+<button type="button" onclick="showEmployee()">EMPLOYEE</button>
+<div id="EmployeeList"></div>
+
+<script>
+function showManager(){
+	var manager=new XMLHttpRequest();
+	manager.onreadystatechange=function(){
+		if (this.readyState == 4 && this.status == 200) {
+			document.getElementById("managerList").innerHTML=this.responseText;
+		}
+	};
+	manager.open("GET","http://localhost:10090/managers",true);
+	manager.send();
+}
+function showEmployee(){
+	var manager=new XMLHttpRequest();
+	manager.onreadystatechange=function(){
+		if (this.readyState == 4 && this.status == 200) {
+			document.getElementById("EmployeeList").innerHTML=this.responseText;
+		}
+	};
+	manager.open("GET","http://localhost:10090/employees",true);
+	manager.send();
+}
+</script>
+</body>
+</html>
